@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorsService } from '../colors.service';
+import { Color } from '../model/color';
 
 @Component({
   selector: 'app-colors-list',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./colors-list.component.scss']
 })
 export class ColorsListComponent implements OnInit {
+  public colors: Color[];
 
-  constructor() { }
+  constructor(private colorsService: ColorsService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const colors = await this.colorsService.getColors();
+    this.colors = colors;
   }
 
 }

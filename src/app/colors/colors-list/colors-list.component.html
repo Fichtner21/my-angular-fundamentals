@@ -1,9 +1,17 @@
 <ul>
-    <li><a routerLink="/colors/red">red</a></li> 
+    <li *ngFor="let color of colors">
+        <!-- {{ color | json }} -->
+        <a routerLink="/colors/{{ color.id }}">{{ color | displayColor }}</a>
+        <!-- {{ color.id }} 
+        {{ color.color }} 
+        {{ color.name }} 
+        {{ color.year }} -->
+    </li>
+    <!-- <li><a routerLink="/colors/red">red</a></li> 
     <li><a routerLink="/colors/green">green</a></li>
     <li><a routerLink="/colors/blue">blue</a></li>
     <li><a routerLink="yellow">yellow</a></li>
-    <li><a routerLink="orange">orange</a></li>
+    <li><a routerLink="orange">orange</a></li> -->
 </ul>
 <!-- ../red -> wzgledem colors np. colores/red -->
 <!-- orange -> wzgledem obecnego poloczenia czyli colors/list/red -->

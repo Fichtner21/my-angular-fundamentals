@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ColorsService } from '../colors.service';
+import { Color } from '../model/color';
 
 @Component({
   selector: 'app-single-color',
@@ -9,15 +11,18 @@ import { ActivatedRoute } from '@angular/router';
 export class SingleColorComponent implements OnInit {
   public colorName: string;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private colorsService:ColorsService) {
     console.log(activatedRoute);
   }
 
-  ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params.id;
-    this.colorName = id;
-  }
+  async ngOnInit(): Promise<void> {
+    const id: string = this.activatedRoute.snapshot.params.id;
+    const colorId: number = Number.parseInt(id, 10);
 
+    const color: Color = await this.colorsService.getSingleColor(colorId);
+
+    this.colorName = color.name;
+  }
 }
 
 //injection pool -> co się dzieje pod spodem ActiavtedRoute
