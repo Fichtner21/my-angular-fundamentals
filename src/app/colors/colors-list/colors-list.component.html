@@ -1,6 +1,7 @@
+<button (click)="toggle()">toggle</button>
 <ul>
     <ng-container *ngFor="let color of colors">
-        <li appColorHighlight [highlightColor]="color.color" [highlightAlways]="true">
+        <li appColorHighlight [highlightColor]="color.color" [highlightAlways]="highlight">
             <!-- {{ color | json }} -->
             <a routerLink="/colors/{{ color.id }}">{{ color | displayColor }}</a>
             <!-- {{ color.id }} 
