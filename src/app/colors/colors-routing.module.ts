@@ -15,7 +15,7 @@ const routes: Routes = [
         component: ColorsListComponent,
       },
       {
-        path: 'details',
+        path: ':id',
         component: SingleColorComponent,
       }
     ]
