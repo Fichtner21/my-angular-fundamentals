@@ -1,12 +1,15 @@
 <ul>
-    <li *ngFor="let color of colors">
-        <!-- {{ color | json }} -->
-        <a routerLink="/colors/{{ color.id }}">{{ color | displayColor }}</a>
-        <!-- {{ color.id }} 
-        {{ color.color }} 
-        {{ color.name }} 
-        {{ color.year }} -->
-    </li>
+    <ng-container *ngFor="let color of colors">
+        <li appColorHighlight [highlightColor]="color.color" [highlightAlways]="true">
+            <!-- {{ color | json }} -->
+            <a routerLink="/colors/{{ color.id }}">{{ color | displayColor }}</a>
+            <!-- {{ color.id }} 
+            {{ color.color }} 
+            {{ color.name }} 
+            {{ color.year }} -->
+        </li>
+    </ng-container>
+    
     <!-- <li><a routerLink="/colors/red">red</a></li> 
     <li><a routerLink="/colors/green">green</a></li>
     <li><a routerLink="/colors/blue">blue</a></li>

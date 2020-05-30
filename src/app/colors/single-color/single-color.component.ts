@@ -9,7 +9,7 @@ import { Color } from '../model/color';
   styleUrls: ['./single-color.component.scss']
 })
 export class SingleColorComponent implements OnInit {
-  public colorName: string;
+  public color: Color;
 
   constructor(private activatedRoute: ActivatedRoute, private colorsService:ColorsService) {
     console.log(activatedRoute);
@@ -19,9 +19,9 @@ export class SingleColorComponent implements OnInit {
     const id: string = this.activatedRoute.snapshot.params.id;
     const colorId: number = Number.parseInt(id, 10);
 
-    const color: Color = await this.colorsService.getSingleColor(colorId);
+    this.color = await this.colorsService.getSingleColor(colorId);
 
-    this.colorName = color.name;
+    //this.colorName = color.name;
   }
 }
 
