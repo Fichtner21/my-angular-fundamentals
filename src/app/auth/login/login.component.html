@@ -1,0 +1,30 @@
+<h2>Log in</h2>
+
+<form [formGroup]="formGroup">
+    <div>
+        <input 
+            type="email" 
+            placeholder="E-mail"
+            formControlName="email"/>
+            <span class="message">
+                {{ emailMessage$ | async}}
+            </span>
+    </div>
+    <div>
+        <input 
+            type="password" 
+            placeholder="Password"
+            formControlName="password"/>
+            <span class="message">
+                <!-- {{ passwordMessage$ | async }} -->
+            </span>
+
+            <!-- {{formGroup.valueChanges | async | json }} -->
+    </div>
+    <div>
+        <button type="submit" class="btn green" [disabled]="buttonDisabled$ | async">Log in</button>
+        <button type="reset" class="btn red">Clear</button>
+    </div>
+</form>
+
+

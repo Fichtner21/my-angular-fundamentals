@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthComponent } from './auth.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [{ 
     path: '', 
@@ -24,6 +25,12 @@ const routes: Routes = [{
         //   return importedModulePromise
         //     .then((importedModule) => importedModule.RegisterModule);
         // }
+        // 4.
+        
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
       }
     ]
   }, 

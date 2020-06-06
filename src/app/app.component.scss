@@ -1,0 +1,16 @@
+body {
+    font-size: 18px;
+}
+
+nav {
+    background-color: darkred;
+    padding: 15px;
+    border: 2px solid #000;
+    margin-bottom: 10px;
+    position: relative;
+
+    .nav-link {
+        padding-left: 10px;
+        color: #fff;
+    }    
+}
