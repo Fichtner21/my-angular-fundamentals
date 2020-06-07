@@ -8,8 +8,8 @@
 </nav>
 <ng-template #notAuthorized>
 <div> 
-    <a routerLink="auth/register" class="nav-link">Register</a> 
-    <a routerLink="auth/login" class="nav-link">Login</a> 
+    <a routerLink="auth/register" class="nav-link btn">Register</a> 
+    <a routerLink="auth/login" class="nav-link btn">Login</a> 
 </div>  
 </ng-template>
 <div *ngIf="isUserLogged$ | async; else notAuthorized">
