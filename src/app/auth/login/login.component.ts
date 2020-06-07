@@ -21,17 +21,35 @@ export class LoginComponent implements OnInit {
 
   public emailMessage$ = this.formGroup.valueChanges.pipe(
     map((value) => {
-      const emailErrors = this.formGroup.controls.email.errors;
-      if(emailErrors?.required){
-        return 'This field is required';
-      } 
-      if(emailErrors?.email){
-        return 'Wrong email format';
-      } 
+      const emailErrors = this.formGroup.controls.email?.errors;
+      if(emailErrors){
+        if(emailErrors?.required){
+          return 'This field is required';
+        } 
+        if(emailErrors?.email){
+          return 'Wrong email format';
+        } 
+      }      
       return '';
-      
     })
   );
+
+  public passwordMessage$ = this.formGroup.valueChanges.pipe(
+    map((value) => {
+      const passwordErrors = this.formGroup.controls.password?.errors;
+      if(passwordErrors && this.formGroup.controls.password?.dirty){
+        if(passwordErrors?.required){
+          return 'This field is required';
+        }
+        if(passwordErrors?.minlength){
+          return 'Password should have at least 8 chars';
+        }
+        return '';
+      }  else {
+        return '';
+      }     
+    }),
+  )
   
   constructor() { }
 
