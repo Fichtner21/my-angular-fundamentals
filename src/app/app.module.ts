@@ -12,6 +12,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {ReactiveFormsModule} from '@angular/forms';
+import {TranslateModule} from '@ngx-translate/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -30,7 +34,11 @@ import {MatInputModule} from '@angular/material/input';
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    TranslateModule.forRoot(),
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
