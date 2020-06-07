@@ -1,6 +1,6 @@
 <h2>Log in</h2>
 
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit($event)">
     <div>
         <input 
             type="email" 
