@@ -2,10 +2,19 @@
     <a routerLink="" class="nav-link">Home</a>
     <a routerLink="about" class="nav-link">About</a>
     <a routerLink="colors/list" class="nav-link">Colors</a> 
-    <a routerLink="settings" class="nav-link">Settings</a> 
+    <a routerLink="settings" class="nav-link">Settings</a>  
+    
+    
+</nav>
+<ng-template #notAuthorized>
+<div> 
     <a routerLink="auth/register" class="nav-link">Register</a> 
     <a routerLink="auth/login" class="nav-link">Login</a> 
-</nav>
+</div>  
+</ng-template>
+<div *ngIf="isUserLogged$ | async; else notAuthorized">
+    <button (click)="logout()" class="btn">Log out</button>
+</div>
 
 <router-outlet></router-outlet>
 
