@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { AuthUser } from '../model/auth-user.interface';
 import { AuthResponse } from '../model/auth-response.interface';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -55,7 +56,7 @@ export class LoginComponent implements OnInit {
     }),
   )
   
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar) { }
 
   public ngOnInit(): void {
     const valueChanges$ = this.formGroup.valueChanges;
@@ -69,9 +70,7 @@ export class LoginComponent implements OnInit {
     statusChanges$.subscribe((status) => {
       // const emailControl = this.formGroup.controls.email;
       // console.log(emailControl);      
-    });
-
-    
+    });    
   }
 
   public onSubmit($event){
@@ -80,13 +79,17 @@ export class LoginComponent implements OnInit {
       //console.log(user);
       this.authService.loginUser(user).subscribe((response: AuthResponse) => {
         if(response.error){
-          console.log('login error');
+          this.snackBar.open('Login failed', null, {
+            duration: 2000,
+          });
           return;
         }
 
         if(response.token){
           sessionStorage.setItem('session-token', response.token);
-          console.log('login success!');
+          this.snackBar.open('Logged in!', null, {
+            duration: 2000,            
+          });
           this.router.navigateByUrl('/settings');
         }
         console.log('response', response);

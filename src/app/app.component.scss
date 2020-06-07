@@ -2,15 +2,23 @@ body {
     font-size: 18px;
 }
 
-nav {
-    background-color: darkred;
-    padding: 15px;
-    border: 2px solid #000;
-    margin-bottom: 10px;
-    position: relative;
+// nav {
+//     background-color: darkred;
+//     padding: 15px;
+//     border: 2px solid #000;
+//     margin-bottom: 10px;
+//     position: relative;
 
-    .nav-link {
-        padding-left: 10px;
-        color: #fff;
-    }    
+//     .nav-link {
+//         padding-left: 10px;
+//         color: #fff;
+//     }    
+// }
+
+.fill {
+    flex: 1 1 auto;
+}
+
+a {
+    margin: 0 10px;
 }

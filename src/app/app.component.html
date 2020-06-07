@@ -1,20 +1,20 @@
-<nav class="main-nav">
-    <a routerLink="" class="nav-link">Home</a>
-    <a routerLink="about" class="nav-link">About</a>
-    <a routerLink="colors/list" class="nav-link">Colors</a> 
-    <a routerLink="settings" class="nav-link">Settings</a>  
+<mat-toolbar>
+    <a mat-flat-button color="primary" routerLink="" class="btn">Home</a>
+    <a mat-flat-button color="primary" routerLink="about" class="btn">About</a>
+    <a mat-flat-button mat-button color="accent" routerLink="colors/list" class="btn">Colors</a> 
+    <a mat-flat-button color="primary" routerLink="settings" class="btn">Settings</a>  
     
-    
-</nav>
-<ng-template #notAuthorized>
-<div> 
-    <a routerLink="auth/register" class="nav-link btn">Register</a> 
-    <a routerLink="auth/login" class="nav-link btn">Login</a> 
-</div>  
-</ng-template>
-<div *ngIf="isUserLogged$ | async; else notAuthorized">
-    <button (click)="logout()" class="btn">Log out</button>
-</div>
+    <div class="fill"></div>
 
+    <ng-template #notAuthorized>
+    <div> 
+        <a routerLink="auth/register" class="nav-link btn" mat-button>Register</a> 
+        <a routerLink="auth/login" class="nav-link btn" mat-button>Login</a> 
+    </div>  
+    </ng-template>
+    <div *ngIf="isUserLogged$ | async; else notAuthorized">
+        <button (click)="logout()" class="btn" mat-button>Log out</button>
+    </div>
+</mat-toolbar>
 <router-outlet></router-outlet>
 
